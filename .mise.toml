@@ -1,0 +1,6 @@
+[env]
+# Pin these to specific python versions, though minor Python doesn't matter as much as Poetry.
+# We don't update these too often, as we don't have many dependencies for our project.
+[tools]
+python = {version='3.11.8', virtualenv='.venv'}
+poetry = {version='1.8.2', pyproject='pyproject.toml'}

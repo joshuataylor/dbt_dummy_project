@@ -1,0 +1,30 @@
+name: 'dummy_project'
+version: '0.0.1'
+profile: "dummy_project"
+config-version: 2
+model-paths: [ "models" ]
+analysis-paths: [ "analysis" ]
+test-paths: [ "tests" ]
+seed-paths: [ "data" ]
+macro-paths: [ "macros" ]
+snapshot-paths: [ "sn¡apshots" ]
+target-path: "target"
+log-path: "logs"
+clean-targets: [ "target", "dbt_modules" ]
+
+models:
+  enabled: true        # configs defined here are applied to _all_ packages
+  food_store:
+    +query_tag: dummy_project
+    materialized: table
+    popcorn:
+    marts:
+      schema: food
+      core:
+        +tags: [ "core" ]
+        +schema: core
+    staging:
+      schema: staging
+      +tags: [ "staging" ]
+      food_store:
+        materialized: view

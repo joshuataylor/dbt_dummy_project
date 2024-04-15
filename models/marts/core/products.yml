@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: fct_products
+    columns:
+      - name: product_id
+        tests:
+          - unique
+          - not_null
+      - name: title
+        tests:
+          - not_null
+      - name: created_at
+      - name: updated_at
+      - name: sales
+      - name: last_sale_at

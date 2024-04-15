@@ -1,0 +1,65 @@
+version: 2
+
+models:
+  - name: stg_products
+    description: Something something
+    columns:
+      - name: product_id
+        description: bar
+        tests:
+          - unique
+          - not_null
+      - name: title
+      - name: created_at
+      - name: updated_at
+
+  - name: stg_customers
+    description: A list of customers
+    columns:
+      - name: id
+          - not_null
+      - name: full_name
+      - name: email
+          - not_null
+      - name: created_at
+          - not_null
+      - name: updated_at
+          - not_null
+
+sources:
+  - name: food_store
+    database: dummy_project
+    schema: public
+    tables:
+      - name: products
+        columns:
+          - name: id
+          - name: title
+          - name: active
+          - name: created_at
+          - name: updated_at
+      - name: line_items
+        columns:
+          - name: id
+          - name: created_at
+          - name: updated_at
+          - name: product_id
+          - name: quantity
+          - name: price
+          - name: order_id
+      - name: orders
+        columns:
+          - name: id
+          - name: order_state
+          - name: created_at
+          - name: updated_at
+          - name: customer_comment
+          - name: admin_comment
+          - name: customer_id
+      - name: customers
+        columns:
+          - name: id
+          - name: full_name
+          - name: email
+          - name: created_at
+          - name: updated_at
